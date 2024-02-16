@@ -1,0 +1,21 @@
+<template>
+    <lightning-record-form
+        object-api-name={objectApiName}
+        record-id={recordId}
+        fields={fields}
+        mode="edit"
+        onsubmit={handleSubmit}
+        onsuccess={handleSuccess}
+    >
+    </lightning-record-form>   
+    <lightning-card title="Related Contacts">
+        <template lwc:if={records}>
+          <div class="slds-m-around_medium">
+            <template for:each={records} for:item="rec">
+              <p key={rec.fields.Id.value}>{rec.fields.Name.value}</p>
+              <p key={rec.fields.Id.value}>{rec.fields.Email.value}</p>
+            </template>
+          </div>
+        </template>
+      </lightning-card> 
+</template>

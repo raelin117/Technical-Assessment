@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Related Contacts">
+        <template lwc:if={records}>
+            <div class="slds-m-around_small">
+            <template for:each={records} for:item="rec">
+                <lightning-card  title={rec.fields.Name.value}  key={rec.fields.Id.value}>
+                    <p class="slds-p-horizontal_small">Email: {rec.fields.Email.value}</p>
+                </lightning-card>
+            </template>
+            </div>
+        </template>
+        </lightning-card> 
+</template>
